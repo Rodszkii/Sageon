@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Sop>
+    <head>
+        <title>SOP</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+       <div class="Title">
+            <h1 style="font-size:60px" ;font-family: TimesNewRoman ;><b>Sop</b></h1>
+        </div>
+        <style>
+            .SopTable {
+                padding: 80px 200px 200px; 
+                color:#000034;
+                padding-right:70px;
+                padding-bottom:30px;
+
+            }
+                .SopTable th {
+                    background-color: #008080;
+                    color: white;
+                    width: 50%;
+                    border: 5px;
+                    border-style: solid;
+                    border-color: #000034 !important;
+                }
+
+                .SopTable td, .myTable th {
+                    padding: 5px;
+                    border: 5px;
+                    border-style: solid;
+                    border-color: #000034 !important;
+                }
+        .Title { color: #008080; width: 100%; height: 15px; padding-left:200px;}
+        </style>
+        <div class="SopTable">
+            <table class="table table-bordered"; style="        border: 1px solid #008080;
+        border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th style="text-align:center">Title</th>
+                        <th style="text-align:center">Client</th>
+                        <th style="text-align:center">Artifact</th>
+                        <th style="text-align:center">Occurance</th>
+                        <th style="text-align:center">SIEM</th>
+                        <th style="text-align:center">Comment</th>
+                        <th style="text-align:center">Reviewed By</th>
+                        <th style="text-align:center">Added By</th>
+                        <th style="text-align:center">Procedure</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var s in Model)
+                    {
+                        <tr>
+                            <td style="text-align:center">
+                                @Html.Raw(@s.Title)
+                            </td>
+                            <td style="text-align:center">
+                                @Html.Raw(@s.Client)
+                            </td>
+                            <td style="text-align:center">
+                                @Html.Raw(@s.Artifact)
+                            </td>
+                            <td style="text-align:center">
+                                @Html.Raw(@s.Occurance.ToString(""))
+                            </td>
+                            <td style="text-align:center">
+                                @Html.Raw(@s.SIEM)
+                            </td>
+                            <td style="text-align:center">
+                                @Html.Raw(@s.Comment)
+                            </td>
+                            <td style="text-align:center">
+                                @Html.Raw(@s.Reviewed_By)
+                            </td>
+                            <td style="text-align:center">
+                                @Html.Raw(@s.Added_By)
+                            </td>
+                            <td style="text-align:center">
+                                @Html.Raw(@s.Procedure)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </body>

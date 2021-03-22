@@ -1,0 +1,174 @@
+﻿@model IEnumerable<Sop>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Sageon</title>
+    <style>
+        ::placeholder {
+            color: #008080;
+            opacity: 1; /* Firefox */
+        }
+
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: #008080;
+        }
+
+        ::-ms-input-placeholder { /* Microsoft Edge */
+            color: #008080;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+
+
+    <div>@RenderBody()</div>
+    <style>
+        .sidenav {
+            height: 100%;
+            width: 135px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #000034;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+            .sidenav a {
+                padding: 6px 8px 6px 16px;
+                text-decoration: none;
+                font-size: 20px;
+                color: #008080;
+                display: block;
+                position: relative
+            }
+
+                .sidenav a:hover {
+                    color: #f5deb3;
+                }
+
+        .Logo {
+            position: fixed;
+            top: -40px;
+            left: -20px
+        }
+
+
+        Contact
+
+        .main {
+            margin-left: 135px; /* Same as the width of the sidenav */
+            font-size: 20px; /* Increased text to enable scrolling */
+            padding: 0px 10px;
+        }
+
+        .Linking {
+            padding-top: 100px;
+        }
+
+        .Search {
+            padding-top: 25px;
+            background-color: #000034;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #008080;
+        }
+
+            .navbar a {
+                float: left;
+                font-size: 10px;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+            .dropdown .dropbtn {
+                font-size: 12px;
+                border: none;
+                outline: none;
+                color: white;
+                padding: 14px 16px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+            }
+
+            .navbar a:hover, .dropdown:hover .dropbtn {
+                background-color: #008080;
+                color: #000034 !important;
+            }
+
+        .dropdown-content {
+            display: none;
+            position: relative;
+            background-color: #000034;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                float: none;
+                color: #008080;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #008080;
+                    color: #000034;
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+    <div class="sidenav">
+        <div class="Logo">
+            <img src="~/Images/Sageon_logo.png" class="img" alt="Logo" width="150"
+                 height="150" />
+        </div>
+        <div class="Linking">
+
+            <a href="#Sop">Sop</a>
+            <a href="#Incidents">Incidents</a>
+            <a href="#contact">Contact</a>
+            <div class="Search">
+                <form>
+                    <input type="text" style="        background-color: #000034;color: #008080;border: 0" ; placeholder="Search" ;size="15" />
+                </form>
+                <div class="dropdown">
+                    <button class="dropbtn" style="color: #008080">
+                        Client
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        @foreach (var s in Model)
+                        {
+                            <a href="#" style="font-size:10px">@Html.Raw(@s.Client)</a>
+
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+</html>
