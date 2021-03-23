@@ -18,8 +18,8 @@ namespace Sageon.Controllers
         {
             repository = repo;
         }
-        public ViewResult Sop() => View(repository.alerts_Sop);  //bsame my action mtl esm l view by default 
-                                                                 // public ViewResult List() => View("Sop", repository.alerts_Sop); //esa bade aate l action esm 8eir l view use this one "" l b2alel hol esm l view  
+        //public ViewResult Sop() => View(repository.alerts_Sop);  //bsame my action mtl esm l view by default 
+       // public ViewResult List() => View("Sop", repository.alerts_Sop); //esa bade aate l action esm 8eir l view use this one "" l b2alel hol esm l view  
 
 
 
@@ -33,16 +33,14 @@ namespace Sageon.Controllers
         }
         //comment
         [HttpGet("{id}")]
-        public async Task<ActionResult> GetFiltered(String? _ClientName)
+        public List<Sop> GetFiltered(String? _ClientName)
         {
             List<Sop> soplist=new List<Sop>();
             if (_ClientName != null)
                 soplist = sp.alerts_Sop.Where(s => s.Client == _ClientName).ToList();
             else
                 soplist = sp.alerts_Sop.ToList();
-            if (soplist == null)
-                return NotFound();
-            return Ok(soplist);
+            return soplist;
         }
         [HttpDelete("{id}")]
         public async Task<ActionResult<Sop>> deleteSop(int? _rowNumber)
@@ -56,7 +54,18 @@ namespace Sageon.Controllers
             }
             return NotFound();
         }
-       
+        //public List<Sop> Getelement(string name) 
+        //{
+        //    List<Sop> emptyList = new List<Sop>();
+        //    List<Sop> resList = GetFiltered(name);
+        //    if ( resList== null)
+        //        return (emptyList);
+        //    return resList;
+            
+        //}
+
+        public ViewResult GetRows(string _name) => View("Sop",GetFiltered(_name));
+
     }
 }
 

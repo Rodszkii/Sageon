@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Sop>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -137,6 +138,7 @@
             display: block;
         }
     </style>
+    
     <div class="sidenav">
         <div class="Logo">
             <img src="~/Images/Sageon_logo.png" class="img" alt="Logo" width="150"
@@ -159,9 +161,10 @@
                     <div class="dropdown-content">
                         @foreach (var s in Model)
                         {
-                            <a href="#" style="font-size:10px">@Html.Raw(@s.Client)</a>
-
+                            <a href="?_name=@Html.Raw(@s.Client)#Sop" style="font-size:10px">@Html.Raw(@s.Client)</a>
+                            // @Html.ActionLink(@Html.Raw(@s.Client).ToString(), "GetRows", "Sops",new { _name = @Html.Raw(@s.Client)});
                         }
+
                     </div>
                 </div>
             </div>
