@@ -10,6 +10,7 @@ namespace Sageon.Models
         public IConfiguration Configuration { get; }
         
         public DbSet<Sop> alerts_Sop { get; set; }
+        public DbSet<User> users_User { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
