@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Sageon.Models;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace Sageon
 {
     public class Startup
@@ -28,6 +29,7 @@ namespace Sageon
             services.AddDbContext<ApplicationDbContext>();
             services.AddTransient < ISopRepository, EFSopRepository>();
             services.AddControllersWithViews();
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

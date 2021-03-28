@@ -27,15 +27,15 @@ namespace Sageon.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult> PostSopRow(Sop _sop)
+        [Route("Add")]
+        public  ViewResult PostSopRow(Sop _sop)
         {
             sp.alerts_Sop.Add(_sop);
             sp.SaveChangesAsync();
-            return Ok(_sop);
+            return SopPage();
         }
         //comment
         [HttpGet("{id}")]
-        
         public List<Sop> GetFiltered(String? _ClientName)
         {
             List<Sop> soplist = new List<Sop>();
@@ -67,9 +67,12 @@ namespace Sageon.Controllers
 
         //}
         [Route("SOP")]
-        private ViewResult GetRows(string _name) => View("Sop",GetFiltered(_name));
+        public ViewResult GetRows(string _name) => View("Sop",GetFiltered(_name));
         private ViewResult SopPage() => View("Sop",repository.alerts_Sop);
+        [Route("")]
         public ViewResult SinginPage() => View("Sign_in");
+        [Route("Add")]
+            public ViewResult AddPage() => View("Add");
         // [HttpGet]
         //[Route("Signin")]
         //public ViewResult Login_Check(String _Email, String _Password)
@@ -104,7 +107,8 @@ namespace Sageon.Controllers
 
         [HttpPost]
         [Route("api/check")]
-        public ViewResult Check([FromBody] User _user)
+        [Consumes("application/x-www-form-urlencoded")]
+        public ViewResult Check([FromForm] User _user)
         {
             var _Email = _user.Email;
             var _Password = _user.Password;
@@ -112,7 +116,6 @@ namespace Sageon.Controllers
             if (dbUser != null && _Password == dbUser.Password) return SopPage();
             return SinginPage();
         }
-
     }
 }
 

@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Sop>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,9 +23,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
-
-
     <div>@RenderBody()</div>
     <style>
         .sidenav {
@@ -149,6 +147,7 @@
             <a href="/SOP">Sop</a>
             <a href="#Incidents">Incidents</a>
             <a href="#contact">Contact</a>
+            <a href="/Add";fontsize="15px">Add Item</a>
             <div class="Search">
                 <form>
                     <input type="text" style="        background-color: #000034;color: #008080;border: 0" ; placeholder="Search" ;size="15" />
@@ -161,17 +160,14 @@
                     <div class="dropdown-content">
                         @foreach (var s in Model)
                         {
-                            <a href="?_name=@Html.Raw(@s.Client)#Sop" style="font-size:10px">@Html.Raw(@s.Client)</a>
+                            <a href="?_name=@Html.Raw(@s.Client)" style="font-size:10px">@Html.Raw(@s.Client)</a>
                             // @Html.ActionLink(@Html.Raw(@s.Client).ToString(), "GetRows", "Sops",new { _name = @Html.Raw(@s.Client)});
                         }
-
                     </div>
                 </div>
             </div>
 
         </div>
     </div>
-
-
 </body>
 </html>

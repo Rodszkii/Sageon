@@ -34,6 +34,11 @@
                     border-style: solid;
                     border-color: #000034 !important;
                 }
+            #btn_del {
+                background-color: white !important;
+                color: #000034 !important;
+                border:0;
+            }
         .Title { color: #008080; width: 100%; height: 15px; padding-left:200px;}
         </style>
         <div class="SopTable">
@@ -50,40 +55,45 @@
                         <th style="text-align:center">Reviewed By</th>
                         <th style="text-align:center">Added By</th>
                         <th style="text-align:center">Procedure</th>
+                        <th style="text-align:center">Delete</th>
+
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var s in Model)
                     {
-                        <tr>
-                            <td style="text-align:center">
-                                @Html.Raw(@s.Title)
-                            </td>
-                            <td style="text-align:center">
-                                @Html.Raw(@s.Client)
-                            </td>
-                            <td style="text-align:center">
-                                @Html.Raw(@s.Artifact)
-                            </td>
-                            <td style="text-align:center">
-                                @Html.Raw(@s.Occurance.ToString(""))
-                            </td>
-                            <td style="text-align:center">
-                                @Html.Raw(@s.SIEM)
-                            </td>
-                            <td style="text-align:center">
-                                @Html.Raw(@s.Comment)
-                            </td>
-                            <td style="text-align:center">
-                                @Html.Raw(@s.Reviewed_By)
-                            </td>
-                            <td style="text-align:center">
-                                @Html.Raw(@s.Added_By)
-                            </td>
-                            <td style="text-align:center">
-                                @Html.Raw(@s.Procedure)
-                            </td>
-                        </tr>
+                    <tr>
+                        <td style="text-align:center">
+                            @Html.Raw(@s.Title)
+                        </td>
+                        <td style="text-align:center">
+                            @Html.Raw(@s.Client)
+                        </td>
+                        <td style="text-align:center">
+                            @Html.Raw(@s.Artifact)
+                        </td>
+                        <td style="text-align:center">
+                            @Html.Raw(@s.Occurance.ToString(""))
+                        </td>
+                        <td style="text-align:center">
+                            @Html.Raw(@s.SIEM)
+                        </td>
+                        <td style="text-align:center">
+                            @Html.Raw(@s.Comment)
+                        </td>
+                        <td style="text-align:center">
+                            @Html.Raw(@s.Reviewed_By)
+                        </td>
+                        <td style="text-align:center">
+                            @Html.Raw(@s.Added_By)
+                        </td>
+                        <td style="text-align:center">
+                            @Html.Raw(@s.Procedure)
+                        </td>
+                        <td style="text-align:center">
+                            <button id="btn_del">Delete</button>
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>
