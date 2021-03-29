@@ -28,11 +28,11 @@ namespace Sageon.Controllers
 
         [HttpPost]
         [Route("Add")]
-        public  ViewResult PostSopRow(Sop _sop)
+        public  RedirectToActionResult PostSopRow(Sop _sop)
         {
             sp.alerts_Sop.Add(_sop);
             sp.SaveChangesAsync();
-            return SopPage();
+            return  RedirectToAction("SOP","");
         }
         //comment
         [HttpGet("{id}")]
@@ -45,17 +45,18 @@ namespace Sageon.Controllers
                 soplist = sp.alerts_Sop.ToList();
             return soplist;
         }
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<Sop>> deleteSop(int? _rowNumber)
+        [HttpGet("{id}")]
+        [Route("api/deleteSop")]
+        public ViewResult deleteSop(int rowNumber)
         {
-            if (sp.alerts_Sop.Find(_rowNumber) != null)
+            if (sp.alerts_Sop.Find(rowNumber) != null)
             {
-                var delete = sp.alerts_Sop.Where(d => d.id == _rowNumber).FirstOrDefault();
+                var delete = sp.alerts_Sop.Where(d => d.id == rowNumber).FirstOrDefault();
                 sp.Entry(delete).State = EntityState.Deleted;
                 sp.SaveChanges();
-                return Ok();
+                return SopPage();
             }
-            return NotFound();
+            return SopPage();
         }
         //public List<Sop> Getelement(string name) 
         //{
@@ -72,7 +73,7 @@ namespace Sageon.Controllers
         [Route("")]
         public ViewResult SinginPage() => View("Sign_in");
         [Route("Add")]
-            public ViewResult AddPage() => View("Add");
+            public ViewResult AddPage() => View("Add", repository.alerts_Sop);
         // [HttpGet]
         //[Route("Signin")]
         //public ViewResult Login_Check(String _Email, String _Password)

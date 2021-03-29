@@ -160,8 +160,8 @@
                     <div class="dropdown-content">
                         @foreach (var s in Model)
                         {
-                            <a href="?_name=@Html.Raw(@s.Client)" style="font-size:10px">@Html.Raw(@s.Client)</a>
-                            // @Html.ActionLink(@Html.Raw(@s.Client).ToString(), "GetRows", "Sops",new { _name = @Html.Raw(@s.Client)});
+                            //<a href="?_name=@Html.Raw(@s.Client)" style="font-size:10px">@Html.Raw(@s.Client)</a>
+                             @Html.ActionLink(@Html.Raw(@s.Client).ToString(), "GetRows", "Sops",new { _name = @Html.Raw(@s.Client)});
                         }
                     </div>
                 </div>

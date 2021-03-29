@@ -8,37 +8,46 @@
 <head>
     <title>Add</title>
 </head>
+
 <body>
-    <form class="form-signin" action="Add" method="post">
-        <label for="inputTitle" class="sr-only">Title</label>
-        <input type="text" name="Email" id="inputTitle" class="form-control" placeholder="Title" required autofocus>
+    <style>
+        #Add{
+            padding-left: 175px
+        }
+    </style>
+    <div id="Add">
+        <form class="form-signin" action="Add" method="post">
+            <label for="Title" class="sr-only">Title</label>
+            <input type="text" name="Title" id="Title" class="form-control" placeholder="Title" required autofocus>
 
-        <label for="Client" class="sr-only">Client</label>
-        <input type="text" name="Password" id="inputClient" class="form-control" placeholder="Client" required>
+            <label for="Client" class="sr-only">Client</label>
+            <input type="text" name="Client" id="Client" class="form-control" placeholder="Client" required>
 
-        <label for="Artifact" class="sr-only">Artifact</label>
-        <input type="text" name="Artifact" id="inputArtifact" class="form-control" placeholder="Artifact " required autofocus>
+            <label for="Artifact" class="sr-only">Artifact</label>
+            <input type="text" name="Artifact" id="inputArtifact" class="form-control" placeholder="Artifact " required autofocus>
 
-        <label for="Occurance" class="sr-only">Occurance</label>
-        <input type="text" name="Occurance" id="inputOccurance" class="form-control" placeholder="Occurance" required>
+            <label for="Occurance" class="sr-only">Occurance</label>
+            <input type="text" name="Occurance" id="inputOccurance" class="form-control" placeholder="Occurance" required>
 
-        <label for="SIEM" class="sr-only">SIEM</label>
-        <input type="text" name="SIEM" id="inputSIEM" class="form-control" placeholder="SIEM" required autofocus>
+            <label for="SIEM" class="sr-only">SIEM</label>
+            <input type="text" name="SIEM" id="inputSIEM" class="form-control" placeholder="SIEM" required autofocus>
 
-        <label for="Comment" class="sr-only">Comment</label>
-        <input type="text" name="Comment" id="inputComment" class="form-control" placeholder="Comment" required>
+            <label for="Comment" class="sr-only">Comment</label>
+            <input type="text" name="Comment" id="inputComment" class="form-control" placeholder="Comment" required>
 
-        <label for="Reviewed_By" class="sr-only">Reviewed By</label>
-        <input type="text" name="Reviewed_By" id="Reviewed_By" class="form-control" placeholder="Reviewed By " required autofocus>
+            <label for="Reviewed_By" class="sr-only">Reviewed By</label>
+            <input type="text" name="Reviewed_By" id="Reviewed_By" class="form-control" placeholder="Reviewed By " required autofocus>
 
-        <label for="Added_By" class="sr-only">Added By</label>
-        <input type="text" name="Added_By" id="inputPassword" class="form-control" placeholder="Added By" required>
+            <label for="Added_By" class="sr-only">Added By</label>
+            <input type="text" name="Added_By" id="inputPassword" class="form-control" placeholder="Added By" required>
 
-        <label for="Procedure" class="sr-only">Procedure</label>
-        <input type="text" name="Procedure" id="inputPassword" class="form-control" placeholder="Procedure" required>
+            <label for="Procedure" class="sr-only">Procedure</label>
+            <input type="text" name="Procedure" id="inputPassword" class="form-control" placeholder="Procedure" required>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit" id="btn_signin"> ADD </button>
-    </form>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" id="btn_signin"> ADD </button>
+        </form>
+    </div>
+  
 </body>
 
 </html>

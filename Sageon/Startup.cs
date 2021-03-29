@@ -44,7 +44,7 @@ namespace Sageon
              {
                     endpoints.MapControllerRoute(
                         name: "default",
-                        pattern: "{controller=Sops}/{action=SinginPage}/{id?}");
+                        pattern: "{action=SinginPage}/{id?}");//{controller=Sops}/
              }); // execute that route
             //SopSeedClass.EnsurePopulated(app);
         }

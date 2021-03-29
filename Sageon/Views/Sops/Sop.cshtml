@@ -91,12 +91,14 @@
                             @Html.Raw(@s.Procedure)
                         </td>
                         <td style="text-align:center">
-                            <button id="btn_del">Delete</button>
+                            <form class="btn_delete" action="api/deleteSop" method="get">
+                                <input type="hidden" name="rowNumber" value="@Html.Raw(@s.id)" />
+                                <button id="btn_del" type="submit">Delete</button>
+                            </form>
                         </td>
                     </tr>
                     }
                 </tbody>
             </table>
         </div>
-
     </body>
